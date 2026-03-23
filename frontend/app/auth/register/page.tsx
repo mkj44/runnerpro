@@ -6,7 +6,7 @@ import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
 
 export default function RegisterPage() {
-    const [form, setForm] = useState({ name: '', email: '', password: '', weight: 70 });
+    const [form, setForm] = useState({ name: '', email: '', password: '', weight: '70' });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const router = useRouter();
@@ -17,7 +17,8 @@ export default function RegisterPage() {
         setError('');
         setLoading(true);
         try {
-            const { data } = await registerUser(form);
+            const payload = { ...form, weight: Number(form.weight) || 70 };
+            const { data } = await registerUser(payload);
             login(data.token, data.user);
             router.push('/dashboard');
         } catch (err: any) {
@@ -63,7 +64,7 @@ export default function RegisterPage() {
                     </div>
                     <div>
                         <label style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6, display: 'block' }}>Weight (kg) – for calorie calculation</label>
-                        <input className="input-field" type="number" placeholder="70" value={form.weight} onChange={e => setForm({ ...form, weight: Number(e.target.value) })} required min={30} max={200} />
+                        <input className="input-field" type="number" placeholder="70" value={form.weight} onChange={e => setForm({ ...form, weight: e.target.value })} required min={30} max={200} />
                     </div>
                     <button type="submit" className="btn-primary" disabled={loading} style={{ marginTop: 8, width: '100%', opacity: loading ? 0.7 : 1 }}>
                         {loading ? 'Creating Account...' : 'Sign Up →'}

@@ -8,8 +8,20 @@ dotenv.config();
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    /\.vercel\.app$/,
+];
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    origin: (origin, callback) => {
+        // Allow requests with no origin (curl, Postman, server-side)
+        if (!origin) return callback(null, true);
+        const allowed = allowedOrigins.some(o =>
+            typeof o === 'string' ? o === origin : o.test(origin)
+        );
+        callback(allowed ? null : new Error('CORS: origin not allowed'), allowed);
+    },
     credentials: true,
 }));
 app.use(express.json());
