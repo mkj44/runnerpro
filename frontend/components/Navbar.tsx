@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { Activity, BarChart3, Brain, Home, LogOut, Plus, User, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
     const { user, logout, loading } = useAuth();
@@ -35,11 +36,15 @@ export default function Navbar() {
             }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
                     <div style={{
-                        width: 40, height: 40, borderRadius: 12,
-                        background: 'linear-gradient(135deg, #00ff88, #00c9ff)',
+                        width: 42, height: 42, borderRadius: 12, overflow: 'hidden',
+                        background: 'linear-gradient(135deg, rgba(0,255,136,0.15), rgba(0,201,255,0.1))',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: 20, fontWeight: 900,
-                    }}>🏃</div>
+                        boxShadow: '0 0 16px rgba(0,255,136,0.25)',
+                        border: '1px solid rgba(0,255,136,0.2)',
+                        flexShrink: 0,
+                    }}>
+                        <Image src="/logo.png" alt="RunnerPro Logo" width={42} height={42} style={{ objectFit: 'cover' }} />
+                    </div>
                     <span style={{ fontSize: 22, fontWeight: 800, color: 'var(--text-primary)' }}>
                         Runner<span style={{ color: 'var(--accent)' }}>Pro</span>
                     </span>
@@ -67,11 +72,15 @@ export default function Navbar() {
             }}>
                 <Link href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
                     <div style={{
-                        width: 38, height: 38, borderRadius: 10,
-                        background: 'linear-gradient(135deg, #00ff88, #00c9ff)',
+                        width: 40, height: 40, borderRadius: 12, overflow: 'hidden',
+                        background: 'linear-gradient(135deg, rgba(0,255,136,0.15), rgba(0,201,255,0.1))',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: 18,
-                    }}>🏃</div>
+                        boxShadow: '0 0 16px rgba(0,255,136,0.25)',
+                        border: '1px solid rgba(0,255,136,0.2)',
+                        flexShrink: 0,
+                    }}>
+                        <Image src="/logo.png" alt="RunnerPro Logo" width={40} height={40} style={{ objectFit: 'cover' }} />
+                    </div>
                     <span style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-primary)' }}>
                         Runner<span style={{ color: 'var(--accent)' }}>Pro</span>
                     </span>
