@@ -58,5 +58,3 @@ Make sure MongoDB is running locally on port 27017 (or update MONGODB_URI).
 | `/ai-coach` | AI coaching |
 | `/profile` | Profile & settings |
 
-## 📄 License
-MIT
