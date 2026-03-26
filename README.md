@@ -1,4 +1,4 @@
-# 🏃 RunnerPro – AI-Powered Running Tracker
+🏃 RunnerPro – AI-Powered Running Tracker
 
 A fullstack Strava-like web app for runners to track daily runs, monitor pace, calories burnt, and get AI-powered coaching insights.
 
