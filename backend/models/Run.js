@@ -25,9 +25,9 @@ const RunSchema = new mongoose.Schema({
 });
 
 // Auto-calculate pace and calories before saving
-RunSchema.pre('save', async function (next) {
+RunSchema.pre('save', function(next) {
     if (this.distance && this.duration) {
-        this.pace = this.duration / this.distance; // min/km
+        this.pace = this.duration / this.distance;
         this.paceZone = getPaceZone(this.pace);
     }
     next();
