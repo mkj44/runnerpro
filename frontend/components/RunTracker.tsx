@@ -255,7 +255,7 @@ export default function RunTracker({ onRunComplete }: RunTrackerProps) {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <RunTrackerMap path={path} isTracking={isTracking} />
+                <RunTrackerMap path={path} />
             </motion.div>
         </div>
     );
