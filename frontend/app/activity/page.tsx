@@ -7,7 +7,7 @@ import { getRuns, deleteRun } from '@/lib/api';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import {
     Activity, Trash2, MapPin, Timer, Flame, ChevronLeft, ChevronRight,
-    Navigation, Zap, TrendingUp, Calendar
+    Navigation, Calendar
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 

@@ -16,10 +16,9 @@ const fixLeafletIcon = () => {
 
 interface RunTrackerMapProps {
     path: [number, number][];
-    isTracking: boolean;
 }
 
-export default function RunTrackerMap({ path, isTracking }: RunTrackerMapProps) {
+export default function RunTrackerMap({ path }: RunTrackerMapProps) {
     const mapRef = useRef<L.Map | null>(null);
     const mapContainerRef = useRef<HTMLDivElement | null>(null);
     const polylineRef = useRef<L.Polyline | null>(null);
